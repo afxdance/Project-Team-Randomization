@@ -14,9 +14,7 @@ async function main() {
   for(var i = 1 ; i < header.length ; i++) {
     teams.push(header[i]);
   }
-
-  console.log(teams);
-
+  
   var directory = [];
 
   for(var row = 1; row < data.length ; row++) {
@@ -51,17 +49,11 @@ async function main() {
       team = Math.floor(Math.random() * 4);
     }
     result[team].push(directory[keys[counter]]);
-    console.log(team);
     space[team] -= 1;
     counter += 1;
   }
 
   console.log(result);
-
-
-
-
-
 
   document.write('<pre>');
   /*for (var i = 0 ; i < data.length ; i++ ) {
