@@ -1,7 +1,7 @@
 <script>
 
 async function main() {
-  const URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTlioaOq_VLIHgxZM_oIyBU9WAugv1LPEC1sJnPs98rRbPvcUZSOMy7fOamTzoORb0i64pFPIzfcFAg/pub?output=csv';
+  const URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQLSdnJgrI57swqwU8lSdNSXUNIi2C6DgD9pGyO0V0UttPnlRdrY6UYnSVPRZLtLwX2DwVX037tNcH-/pub?gid=1008169309&single=true&output=csv'
   var request = await fetch(URL);
   var text = await request.text();
   var data = [];
@@ -33,20 +33,18 @@ async function main() {
 
   var team1 = [];
   var team2 = [];
-  var team3 = [];
-  var team4 = [];
-  var result = [team1, team2, team3, team4];
+  var result = [team1, team2];
 
-  var space = [15,15,12,15];
+  var space = [15,15];
   function add(a, b) {
     return a + b;
   }
 
   var counter = 0;
   while(space.reduce(add,0) > 0) {
-    var team = Math.floor(Math.random() * 4);
+    var team = Math.floor(Math.random() * 2);
     while (space[team] == 0) {
-      team = Math.floor(Math.random() * 4);
+      team = Math.floor(Math.random() * 2);
     }
     result[team].push(directory[keys[counter]]);
     space[team] -= 1;
