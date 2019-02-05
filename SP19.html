@@ -20,8 +20,8 @@ async function main() {
 
   for(var row = 1; row < data.length ; row++) {
     var value = Math.random();
+    var lastCol = -1;
     for (var col = 1 ; col < data[0].length ; col++ ) {
-      var lastCol = -1;
       if (data[row][col] == 1) {
         value += 1;
         lastCol = col;
