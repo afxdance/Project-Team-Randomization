@@ -34,10 +34,11 @@ async function main() {
   var team1 = [];
   var team2 = [];
   var team3 = [];
-  var team4 = [];
-  var result = [team1, team2, team3, team4];
+  var result = [team1, team2, team3];
+  
+  
 
-  var space = [15,15,12,15];
+  var space = [12,14,12];
   function add(a, b) {
     return a + b;
   }
@@ -48,6 +49,7 @@ async function main() {
     while (space[team] == 0) {
       team = Math.floor(Math.random() * 4);
     }
+    if ()
     result[team].push(directory[keys[counter]]);
     space[team] -= 1;
     counter += 1;
