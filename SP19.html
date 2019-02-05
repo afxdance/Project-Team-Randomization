@@ -12,7 +12,11 @@ async function main() {
   header = data[0];
   var teams = [];
   for(var i = 1 ; i < header.length ; i++) {
-    teams.push(header[i]);
+    if (i < header.length - 1) {
+      teams.push(header[i]);
+    } else {
+      teams.push(header[i][:-1])
+    }
   }
   
   var directory = [];
