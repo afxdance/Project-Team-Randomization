@@ -32,10 +32,11 @@ async function main() {
       singlePicks[data[row][0]] = lastCol;
     }
   }
+  directory = directory.reverse();
   console.log(directory);
   console.log(singlePicks);
 
-  var keys = Object.keys(directory).sort().reverse();
+  var keys = Object.keys(directory).sort();
   console.log(keys);
 
   var team1 = [];
