@@ -15,7 +15,7 @@ async function main() {
     teams.push(header[i]);
   }
   
-  var directory = [];
+  var directory = {};
   var singlePicks = {};
 
   for(var row = 1; row < data.length ; row++) {
@@ -32,12 +32,12 @@ async function main() {
       singlePicks[data[row][0]] = lastCol;
     }
   }
-  directory = directory.reverse();
+  directory = directory.sort();
   console.log("reverse");
   console.log(directory);
   console.log(singlePicks);
 
-  var keys = Object.keys(directory).sort();
+  var keys = Object.keys(directory).reverse();
   console.log(keys);
 
   var team1 = [];
