@@ -1,7 +1,7 @@
 <script>
 
 async function main() {
-  const URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQLSdnJgrI57swqwU8lSdNSXUNIi2C6DgD9pGyO0V0UttPnlRdrY6UYnSVPRZLtLwX2DwVX037tNcH-/pub?gid=1008169309&single=true&output=csv'
+  const URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT984wArzsXF3phovUe7o_KLc2XrxxEi_nj9uKl3k3JvbRslClI308u9_Z83gkZxMTB0rvKwqQ-0CoU/pub?output=csv'
   var request = await fetch(URL);
   var text = await request.text();
   var data = [];
@@ -33,9 +33,10 @@ async function main() {
 
   var team1 = [];
   var team2 = [];
-  var result = [team1, team2];
+  var team3 = [];
+  var result = [team1, team2, team3];
 
-  var space = [15,15];
+  var space = [6,7,7];
   function add(a, b) {
     return a + b;
   }
