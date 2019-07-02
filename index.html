@@ -32,7 +32,8 @@ async function main() {
       singlePicks[data[row][0]] = lastCol;
     }
   }
-  console.log("no reverse");
+  directory = directory.reverse();
+  console.log("reverse");
   console.log(directory);
   console.log(singlePicks);
 
