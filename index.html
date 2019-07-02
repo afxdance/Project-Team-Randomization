@@ -58,9 +58,6 @@ async function main() {
     if (keys[counter] < 2) {
       team = singlePicks[directory[keys[counter]]];
       if (space[team] == 0) {
-          document.write('<pre>');
-          document.write('Please refresh.')
-          document.write('<pre>');
           good = false;
       }
     } else {
@@ -86,6 +83,10 @@ async function main() {
       }
     }
     document.write('</pre>');
+  } else {
+    document.write('<pre>');
+    document.write('Please refresh.')
+    document.write('<pre>');
   }
 }
 document.addEventListener("DOMContentLoaded", main);
