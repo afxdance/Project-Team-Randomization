@@ -29,7 +29,7 @@ async function main() {
     }
     directory[value] = data[row][0];
     if (value < 2) {
-      singlePicks[data[row][0]] = lastCol;
+      singlePicks[data[row][0]] = lastCol - 1;
     }
   }
   console.log(directory);
@@ -58,15 +58,9 @@ async function main() {
       team = singlePicks[directory[keys[counter]]];
     } else {
       team = Math.floor(Math.random() * 3);
-      if(team == 3) {
-        team = 2;
-      }
     }
     while (space[team] == 0) {
       team = Math.floor(Math.random() * 3);
-      if(team == 3) {
-        team = 2;
-      }
     }
     console.log(team);
     result[team].push(directory[keys[counter]]);
