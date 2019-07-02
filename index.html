@@ -51,7 +51,7 @@ async function main() {
   }
 
   var counter = 0;
-  var good = True;
+  var good = true;
   
   while(space.reduce(add,0) > 0) {
     var team;
@@ -61,7 +61,7 @@ async function main() {
           document.write('<pre>');
           document.write('Please refresh.')
           document.write('<pre>');
-          good = False;
+          good = false;
       }
     } else {
       team = Math.floor(Math.random() * 3);
