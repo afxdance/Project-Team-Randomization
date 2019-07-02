@@ -1,0 +1,81 @@
+<script>
+
+async function main() {
+  const URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT984wArzsXF3phovUe7o_KLc2XrxxEi_nj9uKl3k3JvbRslClI308u9_Z83gkZxMTB0rvKwqQ-0CoU/pub?gid=0&single=true&output=csv';
+  var request = await fetch(URL);
+  var text = await request.text();
+  var data = [];
+  for (let line of text.split('\n')) {
+    data.push(line.split(','))
+  }
+
+  header = data[0];
+  var teams = [];
+  for(var i = 1 ; i < header.length ; i++) {
+    teams.push(header[i]);
+  }
+  
+  var directory = [];
+  var singlePicks = {};
+
+  for(var row = 1; row < data.length ; row++) {
+    var value = Math.random();
+    var lastCol = -1;
+    for (var col = 1 ; col < data[0].length ; col++ ) {
+      if (data[row][col] == 1) {
+        value += 1;
+        lastCol = col;
+      }
+    }
+    directory[value] = data[row][0];
+    if (value < 2) {
+      singlePicks[data[row][0]] = lastCol;
+    }
+  }
+  console.log(directory);
+  console.log(singlePicks);
+
+  var keys = Object.keys(directory).sort().reverse();
+  console.log(keys);
+
+  var team1 = [];
+  var team2 = [];
+  var team3 = [];
+  var result = [team1, team2, team3];
+  
+  
+
+  var space = [6,7,7];
+  function add(a, b) {
+    return a + b;
+  }
+
+  var counter = 0;
+  while(space.reduce(add,0) > 0) {
+    var team;
+    if (keys[counter] < 2) {
+      team = singlePicks[directory[keys[counter]]];
+    } else {
+      team = Math.floor(Math.random() * 3);
+    }
+    while (space[team] == 0) {
+      team = Math.floor(Math.random() * 3);
+    }
+    result[team].push(directory[keys[counter]]);
+    space[team] -= 1;
+    counter += 1;
+  }
+
+  console.log(result);
+
+  document.write('<pre>');
+  for (var i = 0 ; i < teams.length ; i++) {
+    document.write("\n" + teams[i] + ": ");
+    for (var j = 0 ; j < result[i].length ; j++) {
+      document.write("\n"+ result[i][j]);
+    }
+  }
+  document.write('</pre>');
+}
+document.addEventListener("DOMContentLoaded", main);
+</script>
