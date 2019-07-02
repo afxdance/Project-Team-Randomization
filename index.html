@@ -57,10 +57,10 @@ async function main() {
     if (keys[counter] < 2) {
       team = singlePicks[directory[keys[counter]]];
     } else {
-      team = Math.floor(Math.random() * 2);
+      team = Math.floor(Math.random() * 3);
     }
     while (space[team] == 0) {
-      team = Math.floor(Math.random() * 2);
+      team = Math.floor(Math.random() * 3);
     }
     result[team].push(directory[keys[counter]]);
     space[team] -= 1;
