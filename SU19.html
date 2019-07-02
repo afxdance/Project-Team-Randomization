@@ -57,11 +57,11 @@ async function main() {
       team = singlePicks[directory[keys[counter]]];
       console.log("single" + team)
     } else {
-      team = Math.floor(Math.random() * 3);
+      team = Math.floor(Math.random() * 2);
       console.log("rando" + team)
     }
     while (space[team] == 0) {
-      team = Math.floor(Math.random() * 3);
+      team = Math.floor(Math.random() * 2);
     }
     console.log(team)
     result[team].push(directory[keys[counter]]);
