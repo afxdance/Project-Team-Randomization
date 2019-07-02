@@ -1,7 +1,7 @@
 <script>
 
 async function main() {
-  const URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRM_Aj-pKLuP38zziBVIDvgFIBg90ItgjnziQTyaqNa32BYLknwRMbtb1xXioZeU7rMXaV5Pqro8AMJ/pub?output=csv';
+  const URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT984wArzsXF3phovUe7o_KLc2XrxxEi_nj9uKl3k3JvbRslClI308u9_Z83gkZxMTB0rvKwqQ-0CoU/pub?gid=0&single=true&output=csv';
   var request = await fetch(URL);
   var text = await request.text();
   var data = [];
