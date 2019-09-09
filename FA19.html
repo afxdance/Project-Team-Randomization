@@ -15,6 +15,8 @@ async function main() {
     teams.push(header[i]);
   }
   
+  teams[-1] = teams[-1][:-1]
+  
   var directory = [];
 
   for(var row = 1; row < data.length ; row++) {
