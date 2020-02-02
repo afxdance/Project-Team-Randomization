@@ -1,15 +1,13 @@
 <script>
 
 async function main() {
-  const URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTzNwzF8JvDEDwk6NfA2hPOXbKmweTdR84PGKuTqci7UNJxj6Ea4fP65orIkj_3AT2XM7tEw3p-s1UM/pub?output=csv'
+  const URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTzNwzF8JvDEDwk6NfA2hPOXbKmweTdR84PGKuTqci7UNJxj6Ea4fP65orIkj_3AT2XM7tEw3p-s1UM/pub?output=csv';
   var request = await fetch(URL);
   var text = await request.text();
   var data = [];
   for (let line of text.split('\n')) {
     data.push(line.split(','))
   }
-  console.log("ere");
-
   header = data[0];
   var teams = [];
   for(var i = 1 ; i < header.length ; i++) {
