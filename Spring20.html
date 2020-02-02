@@ -1,7 +1,7 @@
 <script>
 
 async function main() {
-  const URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTdxBuRHMXxMntXMRf91xYVnJsxZMAUM2nwFo-KJih_ADMcV3ePxeQLCo35xtXBLmu6_byQ0tzjP58f/pub?output=csv'
+  const URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTzNwzF8JvDEDwk6NfA2hPOXbKmweTdR84PGKuTqci7UNJxj6Ea4fP65orIkj_3AT2XM7tEw3p-s1UM/pub?output=csv'
   var request = await fetch(URL);
   var text = await request.text();
   var data = [];
@@ -45,9 +45,9 @@ async function main() {
 
   var counter = 0;
   while(space.reduce(add,0) > 0) {
-    var team = Math.floor(Math.random() * 2);
+    var team = Math.floor(Math.random() * 4);
     while (space[team] == 0) {
-      team = Math.floor(Math.random() * 2);
+      team = Math.floor(Math.random() * 4);
     }
     result[team].push(directory[keys[counter]]);
     space[team] -= 1;
