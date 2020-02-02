@@ -1,0 +1,69 @@
+<script>
+
+async function main() {
+  const URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTzNwzF8JvDEDwk6NfA2hPOXbKmweTdR84PGKuTqci7UNJxj6Ea4fP65orIkj_3AT2XM7tEw3p-s1UM/pub?output=csv'
+  var request = await fetch(URL);
+  var text = await request.text();
+  var data = [];
+  for (let line of text.split('\n')) {
+    data.push(line.split(','))
+  }
+
+  header = data[0];
+  var teams = [];
+  for(var i = 1 ; i < header.length ; i++) {
+    teams.push(header[i].replace(/(\r\n|\n|\r)/gm,""));
+  }
+  
+  var directory = [];
+
+  for(var row = 1; row < data.length ; row++) {
+    var value = Math.random();
+    for (var col = 1 ; col < data[0].length ; col++ ) {
+      if (data[row][col] == 1) {
+        value += 1;
+      }
+    }
+    directory[value] = data[row][0];
+  }
+  console.log(directory);
+
+  var keys = Object.keys(directory).sort().reverse();
+  console.log(keys);
+
+  var team1 = [];
+  var team2 = [];
+  var team3 = [];
+  var team4 = [];
+
+  var result = [team1, team2, team3, team4];
+
+  var space = [18, 17, 17, 18];
+  function add(a, b) {
+    return a + b;
+  }
+
+  var counter = 0;
+  while(space.reduce(add,0) > 0) {
+    var team = Math.floor(Math.random() * 2);
+    while (space[team] == 0) {
+      team = Math.floor(Math.random() * 2);
+    }
+    result[team].push(directory[keys[counter]]);
+    space[team] -= 1;
+    counter += 1;
+  }
+
+  console.log(result);
+
+  document.write('<pre>');
+  for (var i = 0 ; i < teams.length ; i++) {
+    document.write("\n" + teams[i] + ": ");
+    for (var j = 0 ; j < result[i].length ; j++) {
+      document.write("\n"+ result[i][j]);
+    }
+  }
+  document.write('</pre>');
+}
+document.addEventListener("DOMContentLoaded", main);
+</script>
